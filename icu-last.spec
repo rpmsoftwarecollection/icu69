@@ -112,10 +112,10 @@ Provides:  lib%{srcname}-doc      = %{version}-%{release}
 
 %prep
 %setup -q -n %{srcname}
-%patch4 -p1 -b .gennorm2-man.patch
-%patch5 -p1 -b .icuinfo-man.patch
-%patch10 -p1 -b .up1
-%patch11 -p1 -b .up2
+%patch -P 4 -p1 -b .gennorm2-man.patch
+%patch -P 5 -p1 -b .icuinfo-man.patch
+%patch -P 10 -p1 -b .up1
+%patch -P 11 -p1 -b .up2
 
 %if 0%{?fedora} == 34 || 0%{?rhel} == 9
 sed -e '/SELFCHECK=1/d' -i source/Makefile.in
