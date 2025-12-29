@@ -1,0 +1,30 @@
+diff -ru icu.orig/source/test/intltest/tztest.cpp icu/source/test/intltest/tztest.cpp
+--- icu.orig/source/test/intltest/tztest.cpp	2022-05-04 17:26:12.863669497 +0200
++++ icu/source/test/intltest/tztest.cpp	2022-05-05 12:37:17.599192452 +0200
+@@ -2011,6 +2011,25 @@
+         const char *alias;
+         const char *zone;
+     } excluded1[] = {
++        {"Africa/Accra", "Africa/Abidjan"},
++        {"America/Blanc-Sablon", "America/Port_of_Spain"},
++        {"America/Curacao", "America/Port_of_Spain"},
++        {"America/Kralendijk", "America/Port_of_Spain"},
++        {"America/Lower_Princes", "America/Port_of_Spain"},
++        {"America/Puerto_Rico", "America/Port_of_Spain"},
++        {"PRT", "America/Port_of_Spain"},
++        {"America/Aruba", "America/Port_of_Spain"},
++        {"America/Cayman", "America/Coral_Harbour"},
++        {"America/Panama", "America/Coral_Harbour"},
++        {"America/Curacao", "America/Port_of_Spain"},
++        {"America/Phoenix", "America/Creston"},
++        {"America/Nassau", "America/Montreal"},
++        {"Pacific/Port_Moresby", "Antarctica/DumontDUrville"},
++        {"Asia/Aden", "Antarctica/Syowa"},
++        {"Asia/Kuwait", "Antarctica/Syowa"},
++        {"Asia/Riyadh", "Antarctica/Syowa"},
++        {"US/Arizona", "America/Creston"},
++        {"PNT", "America/Creston"},
+         {"Africa/Addis_Ababa", "Africa/Nairobi"},
+         {"Africa/Asmera", "Africa/Nairobi"},
+         {"Africa/Bamako", "Africa/Abidjan"},
+icu/source/test/intltest のみに存在: tztest.cpp.~1~

@@ -1,0 +1,24 @@
+diff -ru icu.orig/source/test/cintltst/ccaltst.c icu/source/test/cintltst/ccaltst.c
+--- icu.orig/source/test/cintltst/ccaltst.c	2021-04-08 02:10:27.000000000 +0200
++++ icu/source/test/cintltst/ccaltst.c	2021-12-08 18:48:26.731171253 +0100
+@@ -274,7 +274,7 @@
+     tzver = ucal_getTZDataVersion(&status);
+     if (U_FAILURE(status)) {
+         log_err_status(status, "FAIL: ucal_getTZDataVersion() => %s\n", u_errorName(status));
+-    } else if (uprv_strlen(tzver) != 5 /*4 digits + 1 letter*/) {
++    } else if (uprv_strlen(tzver) != 5 /*4 digits + 1 letter*/ && uprv_strlen(tzver) != 6) {
+         log_err("FAIL: Bad version string was returned by ucal_getTZDataVersion\n");
+     } else {
+         log_verbose("PASS: ucal_getTZDataVersion returned %s\n", tzver);
+diff -ru icu.orig/source/test/intltest/tztest.cpp icu/source/test/intltest/tztest.cpp
+--- icu.orig/source/test/intltest/tztest.cpp	2021-04-08 02:10:27.000000000 +0200
++++ icu/source/test/intltest/tztest.cpp	2021-12-09 08:53:50.576419996 +0100
+@@ -152,7 +152,7 @@
+     const char* tzver = TimeZone::getTZDataVersion(status);
+     if (U_FAILURE(status)) {
+         errcheckln(status, "FAIL: getTZDataVersion failed - %s", u_errorName(status));
+-    } else if (uprv_strlen(tzver) != 5 /* 4 digits + 1 letter */) {
++    } else if (uprv_strlen(tzver) != 5 && uprv_strlen(tzver) != 6 /* 4 digits + 1 letter */) {
+         errln((UnicodeString)"FAIL: getTZDataVersion returned " + tzver);
+     } else {
+         logln((UnicodeString)"tzdata version: " + tzver);
