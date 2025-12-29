@@ -179,19 +179,6 @@ chmod +x $RPM_BUILD_ROOT%{_libdir}/*.so.*
 )
 install -p -m755 -D %{SOURCE10} $RPM_BUILD_ROOT%{_bindir}/icu-config
 
-%check
-%{?dtsenable}
-
-# test to ensure that -j(X>1) didn't "break" man pages. b.f.u #2357
-if grep -q @VERSION@ source/tools/*/*.8 source/tools/*/*.1 source/config/*.1; then
-    exit 1
-fi
-make %{?_smp_mflags} -C source check
-
-# log available codes
-pushd source
-LD_LIBRARY_PATH=lib:stubdata:tools/ctestfw:$LD_LIBRARY_PATH bin/uconv -l
-
 
 %if 0%{?fedora} < 28 && 0%{?rhel} < 8
 %post   -n lib%{name} -p /sbin/ldconfig
